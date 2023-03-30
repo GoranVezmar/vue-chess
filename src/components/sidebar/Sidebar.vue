@@ -1,10 +1,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { generateMoveMessage } from '../../helpers/moves'
+import Instructions from '../instructions/Instructions.vue'
 
 export default defineComponent({
   name: 'Sidebar',
-  components: {},
+  components: {
+    Instructions,
+  },
   computed: {
     moves() {
       return this.$store.state.moves
@@ -18,6 +21,7 @@ export default defineComponent({
 
 <template>
   <div className="sidebar">
+    <Instructions />
     <div className="sidebar_label">Moves:</div>
     <ul className="sidebar_moves">
       <li v-for="move in moves" class="sidebar_move">
